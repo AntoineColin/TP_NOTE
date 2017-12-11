@@ -1,12 +1,13 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Contrat{
 	protected String numeroContrat;
 	protected boolean contratValide;
-	protected List<String> garanties;
+	protected List<String> garanties = new ArrayList<String>();
 	protected double cotisation;
 	
-	protected static List<Contrat> instances;
+	protected static List<Contrat> instances = new ArrayList<Contrat>();
 	
 	
 	

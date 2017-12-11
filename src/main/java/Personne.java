@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -8,7 +9,7 @@ public class Personne {
 	private String prenom;
 	private String dateDeNaissance;
 	private List<Personne> famille;
-	private List<Contrat> contrats;
+	private List<Contrat> contrats = new ArrayList<Contrat>();
 
 	public Personne(String nom,String prenom,String naissance) {
 		estUnClient = false;

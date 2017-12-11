@@ -1,35 +1,30 @@
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CompagnieAssurance {
 	
 	private String nom;
-	private List<Personne> clients;
-	private List<Personne> prospects;
+	private List<Personne> clients = new ArrayList<Personne>();
+	private List<Personne> prospects = new ArrayList<Personne>();
 	
 	
 	public int obtenirNombreDeClients() {
 		int nb = 0;
-		for(Personne p : clients) {
-			nb++;
-		}
+		nb += clients.size();
 		return nb;
 	}
 	
 	public int obtenirNombreDeProspects() {
 		int nb = 0;
-		for(Personne p : prospects) {
-			nb++;
-		}
+		nb += prospects.size();
 		return nb;
 	}
 	
 	public int obtenirNombreDeContrats() {
 		int nb = 0;
 		for(Personne p : clients) {
-			for(Contrat c: p.obtenirContrats()) {
-				nb++;
-			}
+			nb += p.obtenirContrats().size();
 		}
 		return nb;
 	}
@@ -42,5 +37,11 @@ public class CompagnieAssurance {
 	public void ajouterProspects(Personne personne) {
 		prospects.add(personne);
 		
+	}
+	
+	public Personne obtenirPlusGrosClient() {
+		Personne whale = null;
+		
+		return whale;
 	}
 }
