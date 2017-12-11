@@ -9,6 +9,7 @@ public class ContratAuto extends Contrat{
 	
 	public List<String> determinerGaranties(){
 		System.out.println("Souhaitez vous la garantie Accident? Y/N");
+		//demande de sélection à faire
 		garanties.add("Accidents");
 		garanties.add("Bris de glace");
 		garanties.add("Responsabilité civile");

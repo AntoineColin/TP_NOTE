@@ -8,6 +8,7 @@ public class ContratMRH extends Contrat{
 	}
 	
 	public List<String> determinerGaranties(){
+		//demande de sélection à faire
 		garanties.add("Incendies");
 		garanties.add("Vitres");
 		garanties.add("Inondation");

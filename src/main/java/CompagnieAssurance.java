@@ -39,16 +39,15 @@ public class CompagnieAssurance {
 		
 	}
 	
+	@SuppressWarnings("unchecked")
 	public Personne obtenirPlusGrosClient() {
 		Personne whale = null;
 		int max = 0;
 		if(!clients.isEmpty()) {
-			for(Personne p : clients) {
-				if(p.obtenirContrats().size()>max) {
-					max = p.obtenirContrats().size();
-					whale = p;
-				}
-			}
+			whale = clients.get(0);
+			max = clients.get(0).obtenirContrats().size();
+			if(clients.size()>1)
+			clients.sort((java.util.Comparator<? super Personne>) new Comparator<Personne>());
 		}
 		return whale;
 	}

@@ -8,6 +8,7 @@ public class ContratPrevoyance extends Contrat{
 	}
 	
 	public List<String> determinerGaranties(){
+		//demande de sélection à faire
 		garanties.add("Accidents de la vie");
 		garanties.add("Maladie");
 		garanties.add("Mutuelle");
