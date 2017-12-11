@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -9,8 +8,9 @@ public class Personne {
 	private String nom;
 	private String prenom;
 	private Date dateDeNaissance;
-	private ArrayList<Personne> famille;
-	private ArrayList<Contrat> contrats;
+	private List<Personne> famille;
+	private List<Contrat> contrats;
+
 	
 	
 	public boolean estClient() {
@@ -36,32 +36,42 @@ public class Personne {
 	}
 	
 	public void resilierContrat(Contrat actuel) {
-		//TODO
+		contrats.remove(actuel);
 	}
 	
 	public void resilierContrat(String nomContrat) {
-		//TODO
+		contrats.remove(Contrat.Find(nomContrat));
 	}
 	
 	public List<Contrat> obtenirContrats(){
-		ArrayList<Contrat> contrats;
-		//TODO
 		return contrats;
 	}
 	
+	@SuppressWarnings("null")
 	public List<Contrat> obtenirContratsAuto(){
-		ArrayList<Contrat> contrats;
-		//TODO
+		List<Contrat> contratsAuto = null;
+		for(Contrat c : contrats) {
+			if(c instanceof ContratAuto)
+				contratsAuto.add(c);
+		}
+		return contratsAuto;
 	}
 	
+	@SuppressWarnings("null")
 	public List<Contrat> obtenirContratsMRH(){
-		ArrayList<Contrat> contrats;
-		//TODO
+		List<Contrat> contratsMRH = null;
+		for(Contrat c : contrats) {
+			if(c instanceof ContratMRH)
+				contratsMRH.add(c);
+		}
+		return contratsMRH;
 	}
 	
 	public String toString() {
-		String desc;
-		//TODO
+		String desc = "Nom : "+nom+", Prénom : "+prenom+", Né le : "+dateDeNaissance;
+		for(Contrat c:contrats) {
+			desc = desc+"\nContrat num "+c.numeroContrat;
+		}
 		return desc;
 	}
 }

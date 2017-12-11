@@ -4,7 +4,7 @@ public class ContratAuto extends Contrat{
 	
 	public ContratAuto() {
 		cotisation = 150.0;
-		
+		Contrat.instances.add(this);
 	}
 	
 	public List<String> determinerGaranties(){
@@ -16,7 +16,7 @@ public class ContratAuto extends Contrat{
 	}
 	
 	
-	public Contrat creationContrat() {
+	public static Contrat creationContrat() {
 		ContratAuto contrat = new ContratAuto();
 		contrat.determinerGaranties();
 		return contrat;

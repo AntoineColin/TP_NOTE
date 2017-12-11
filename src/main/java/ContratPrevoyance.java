@@ -4,7 +4,7 @@ public class ContratPrevoyance extends Contrat{
 	
 	public ContratPrevoyance() {
 		cotisation = 75;
-		
+		Contrat.instances.add(this);
 	}
 	
 	public List<String> determinerGaranties(){
@@ -14,7 +14,7 @@ public class ContratPrevoyance extends Contrat{
 		return garanties;
 	}
 	
-	public Contrat creationContrat() {
+	public static Contrat creationContrat() {
 		ContratPrevoyance contrat = new ContratPrevoyance();
 		contrat.determinerGaranties();
 		return contrat;	

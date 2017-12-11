@@ -1,21 +1,36 @@
-import java.util.ArrayList;
+
+import java.util.List;
 
 public class CompagnieAssurance {
 	
 	private String nom;
-	private ArrayList<Personne> clients;
-	private ArrayList<Personne> prospects;
+	private List<Personne> clients;
+	private List<Personne> prospects;
 	
 	
 	public int obtenirNombreDeClients() {
-		//TODO
+		int nb = 0;
+		for(Personne p : clients) {
+			nb++;
+		}
+		return nb;
 	}
 	
 	public int obtenirNombreDeProspects() {
-		//TODO
+		int nb = 0;
+		for(Personne p : prospects) {
+			nb++;
+		}
+		return nb;
 	}
 	
 	public int obtenirNombreDeContrats() {
-		//TODO
+		int nb = 0;
+		for(Personne p : clients) {
+			for(Contrat c: p.obtenirContrats()) {
+				nb++;
+			}
+		}
+		return nb;
 	}
 }
