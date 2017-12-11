@@ -41,7 +41,15 @@ public class CompagnieAssurance {
 	
 	public Personne obtenirPlusGrosClient() {
 		Personne whale = null;
-		
+		int max = 0;
+		if(!clients.isEmpty()) {
+			for(Personne p : clients) {
+				if(p.obtenirContrats().size()>max) {
+					max = p.obtenirContrats().size();
+					whale = p;
+				}
+			}
+		}
 		return whale;
 	}
 }
