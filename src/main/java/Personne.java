@@ -1,4 +1,3 @@
-import java.util.Date;
 import java.util.List;
 
 
@@ -7,12 +6,17 @@ public class Personne {
 	private boolean estUnClient;
 	private String nom;
 	private String prenom;
-	private Date dateDeNaissance;
+	private String dateDeNaissance;
 	private List<Personne> famille;
 	private List<Contrat> contrats;
 
-	
-	
+	public Personne(String nom,String prenom,String naissance) {
+		estUnClient = false;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dateDeNaissance = naissance;
+	}
+
 	public boolean estClient() {
 		return estUnClient;
 	}
@@ -26,13 +30,27 @@ public class Personne {
 		return nomComplet;
 	}
 	
-	public Date obtenirDateDeNaissance() {
+	public String obtenirDateDeNaissance() {
 		return dateDeNaissance;
 	}
 	
-	public Contrat creerContrat() {
-		Contrat contrat = Contrat.creationContrat();
-		return contrat;
+	public Contrat creerContrat(CompagnieAssurance ca, String type) {
+		
+		Contrat c = null;
+		if(type == "Auto") {
+			c = ContratAuto.creationContrat();
+		}else if(type == "MRH") {
+			c= ContratMRH.creationContrat();
+		}else if(type == "Prevoyance") {
+			c= ContratPrevoyance.creationContrat();
+		}else {
+			ca.ajouterProspects(this);
+			return null;
+		}
+		estUnClient = true;
+		ca.ajouterClient(this);
+		contrats.add(c);
+		return c;
 	}
 	
 	public void resilierContrat(Contrat actuel) {
@@ -69,8 +87,10 @@ public class Personne {
 	
 	public String toString() {
 		String desc = "Nom : "+nom+", Prénom : "+prenom+", Né le : "+dateDeNaissance;
-		for(Contrat c:contrats) {
-			desc = desc+"\nContrat num "+c.numeroContrat;
+		if(!contrats.isEmpty()) {
+			for(Contrat c:contrats) {
+				desc = desc+"\nContrat num "+c.numeroContrat;
+			}
 		}
 		return desc;
 	}

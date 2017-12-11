@@ -33,4 +33,14 @@ public class CompagnieAssurance {
 		}
 		return nb;
 	}
+
+	public void ajouterClient(Personne personne) {
+		clients.add(personne);
+		
+	}
+
+	public void ajouterProspects(Personne personne) {
+		prospects.add(personne);
+		
+	}
 }
